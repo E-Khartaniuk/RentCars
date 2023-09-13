@@ -1,0 +1,89 @@
+.carCard {
+  width: 274px;
+  /* height: 426px; */
+  margin: 0;
+  flex: 1;
+}
+
+.imageContainer {
+  width: 274px;
+  height: 268px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.imageContainer img {
+  width: 401px;
+  height: 268px;
+  flex-shrink: 0;
+}
+.carName {
+  color: #121417;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 150% */
+}
+.carModel {
+  color: #3470ff;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.carNameContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.propertyContainer {
+  padding: 0;
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  max-height: 3em; /* Задаем максимальную высоту контейнера (2 строки текста) */
+  overflow: hidden; /* Скрываем элементы, которые не помещаются */
+}
+
+.propertyItem:not(:last-child, :first-child)::before {
+  content: ' ';
+
+  margin-right: 6px;
+  margin-left: 6px;
+  border-right: 1px solid rgba(18, 20, 23, 0.1);
+}
+
+.cardBtn {
+  display: flex;
+  width: 274px;
+  height: 44px;
+  padding: 12px 99px;
+  margin-top: 28px;
+
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 12px;
+  background: #3470ff;
+  color: White;
+}
+
+.cardBtn:focus {
+  background: #0b44cd;
+}
+.cardBtn:hover {
+  background: #0b44cd;
+}

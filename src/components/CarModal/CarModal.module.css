@@ -1,0 +1,114 @@
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(18, 20, 23, 0.5);
+  z-index: 1;
+}
+
+.carCardModal {
+  width: 541px;
+  height: 752px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: #fff;
+
+  padding: 40px, 37px;
+}
+
+.imageContainerModal {
+  width: 274px;
+  height: 268px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.imageContainer img {
+  width: 401px;
+  height: 268px;
+  flex-shrink: 0;
+}
+.carName {
+  color: #121417;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1, 5;
+}
+.carModel {
+  color: #3470ff;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+}
+.carNameContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.propertyContainer {
+  padding: 0;
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1, 5;
+
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.propertyItem:not(:last-child, :first-child)::before {
+  content: ' ';
+
+  margin-right: 6px;
+  margin-left: 6px;
+  border-right: 1px solid rgba(18, 20, 23, 0.1);
+}
+
+.description {
+}
+
+.cardBtn {
+  width: 168px;
+  height: 44px;
+  margin-top: 24px;
+  padding: 12px 50px;
+
+  border: none;
+  border-radius: 12px;
+  background: #3470ff;
+  color: White;
+
+  display: inline-flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.cardBtn:focus {
+  background: #0b44cd;
+}
+.cardBtn:hover {
+  background: #0b44cd;
+}
+
+.conditions {
+  display: flex;
+  padding: 7px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 35px;
+  background: #f9f9f9;
+}

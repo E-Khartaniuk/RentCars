@@ -1,0 +1,10 @@
+.catalogList {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px 29px;
+  align-items: stretch;
+
+  padding: 0;
+}

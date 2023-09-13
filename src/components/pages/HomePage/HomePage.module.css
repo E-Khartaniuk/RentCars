@@ -1,0 +1,15 @@
+.title {
+  font-size: 128px;
+  text-decoration: double;
+  width: 60%;
+}
+
+.description {
+  font-size: 44px;
+  width: 40%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}

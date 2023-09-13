@@ -1,0 +1,17 @@
+.container {
+  width: 1440px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.navLinksList {
+  display: flex;
+  gap: 12px;
+}
+
+.navigationLinks {
+  text-decoration: none;
+  background-color: rgb(182, 202, 255);
+  width: 80px;
+  height: 20px;
+}
