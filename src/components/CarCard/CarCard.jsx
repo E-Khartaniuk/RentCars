@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import css from './CarCard.module.css';
 import CarModal from 'components/CarModal/CarModal';
+import sprite from '../img/sprite.svg';
 
-export default function CarCard({ car }) {
+export default function CarCard({ car, setFavoriteCars, favoriteCars }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [favorite, setFavorite] = useState(false);
+  const isFavorite = favoriteCars.some(favCar => favCar.id === car.id);
+
   const adressArray = car.address.split(', ');
   const countrie = adressArray[adressArray.length - 1];
   const city = adressArray[adressArray.length - 2];
@@ -12,11 +16,32 @@ export default function CarCard({ car }) {
     setModalIsOpen(!modalIsOpen);
   };
 
+  const handleFavoriteToggle = () => {
+    const updatedFavorites = isFavorite
+      ? favoriteCars.filter(favCar => favCar.id !== car.id)
+      : [...favoriteCars, car];
+
+    setFavoriteCars(updatedFavorites);
+    localStorage.setItem('favoriteCars', JSON.stringify(updatedFavorites));
+  };
   return (
     <>
       <div className={css.carCard}>
         <div className={css.imageContainer}>
           <img src={car.img} alt="Car" className={css.imageContainer} />
+          <button
+            type="button"
+            onClick={handleFavoriteToggle}
+            className={css.favBtn}
+          >
+            <svg
+              className={
+                isFavorite ? css.favoriteIconChecked : css.favoriteIcon
+              }
+            >
+              <use xlinkHref={`${sprite}#favorite`} />
+            </svg>
+          </button>
         </div>
         <div className={css.carNameContainer}>
           <h4 className={css.carName}>

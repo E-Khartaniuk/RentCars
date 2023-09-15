@@ -1,5 +1,5 @@
 .backdrop {
-  display: none;
+  /* display: none; */
   position: fixed;
   top: 0;
   left: 0;
@@ -10,39 +10,65 @@
 }
 
 .carCardModal {
-  width: 541px;
-  height: 752px;
+  position: relative;
+  width: 461px;
+  /* height: 752px; */
   flex-shrink: 0;
   border-radius: 24px;
   background: #fff;
 
-  padding: 40px, 37px;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 40px 40px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+.closeIcon {
+  stroke: #121417;
+  width: 24px;
+  height: 24px;
 }
 
 .imageContainerModal {
-  width: 274px;
-  height: 268px;
+  position: relative;
+  width: 461px;
+  height: auto;
   overflow: hidden;
   border-radius: 10px;
+  margin: 0 auto;
 }
 
-.imageContainer img {
-  width: 401px;
-  height: 268px;
-  flex-shrink: 0;
+.imageContainerModal img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
 }
 .carName {
   color: #121417;
   font-family: Manrope;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1, 5;
+  line-height: 1.5;
 }
 .carModel {
   color: #3470ff;
   font-family: Manrope;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 24px;
@@ -66,6 +92,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  gap: 4px;
 }
 
 .propertyItem:not(:last-child, :first-child)::before {
@@ -76,7 +104,10 @@
   border-right: 1px solid rgba(18, 20, 23, 0.1);
 }
 
-.description {
+.functionalitiesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .cardBtn {
@@ -104,11 +135,37 @@
 }
 
 .conditions {
+  display: inline-block;
+  width: fit-content;
+
   display: flex;
   padding: 7px 14px;
   justify-content: center;
   align-items: center;
   gap: 8px;
   border-radius: 35px;
-  background: #f9f9f9;
+  background-color: #f9f9f9;
+
+  color: #363535;
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.conditionsContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.conditionsAccent {
+  color: #3470ff;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.24px;
 }
