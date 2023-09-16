@@ -10,7 +10,7 @@
   scale: 1.001;
   -webkit-box-shadow: -2px 0px 28px -7px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -2px 0px 28px -7px rgba(0, 0, 0, 0.75);
-  box-shadow: -2px 0px 28px -7px rgba(0, 0, 0, 0.75);
+  box-shadow: -2px 0px 28px -7px rgba(0, 0, 0, 0.418);
 }
 
 .imageContainer {

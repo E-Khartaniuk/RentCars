@@ -24,7 +24,8 @@ export default function Catalog() {
           setHideLoadMore(true);
           return;
         }
-        setCars(prevCars => [...prevCars, ...response.data]);
+        // setCars(prevCars => [...prevCars, ...response.data]);
+        setCars(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -35,24 +36,43 @@ export default function Catalog() {
     const storedFavorites =
       JSON.parse(localStorage.getItem('favoriteCars')) || [];
     setFavoriteCars(storedFavorites);
-  }, [page, limit]);
+  }, []);
+
+  async function fetchNewData() {
+    try {
+      const response = await axios.get(URL, {
+        params: {
+          page: page,
+          limit: limit,
+        },
+      });
+      setCars(prevCars => [...prevCars, ...response.data]);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
 
   const handleLoadMore = () => {
-    if (limit >= cars.length) {
-      console.log('limit', limit);
-      console.log('cars.length', cars.length);
-      setHideLoadMore(!hideLoadMore);
-      return;
-    }
     setPage(prevPage => prevPage + 1);
-    // console.log('page', page);
-    console.log('limit', limit);
-    setLimit(prevLimit => prevLimit + 8);
+
+    fetchNewData();
+  };
+
+  const handlePriceChange = () => {
+    const filteredCars = cars.filter(car => {
+      const rentalPrice = parseFloat(car.rentalPrice.replace('$', ''));
+      return rentalPrice <= 40;
+    });
+    console.log('filteredCars', filteredCars);
+    setCars(filteredCars);
   };
 
   return (
     <>
       <h2>Catalog</h2>
+      <button type="button" onClick={handlePriceChange}>
+        60
+      </button>
       <ul className={css.catalogList}>
         {cars.map(car => (
           <li key={car.id}>

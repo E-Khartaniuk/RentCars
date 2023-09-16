@@ -1,0 +1,23 @@
+.priceFilter {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.priceFilter label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.priceFilter select {
+  padding: 10px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.priceFilter select:focus {
+  outline: none;
+}
+
+.priceFilter select option {
+  font-size: 14px;
+}
