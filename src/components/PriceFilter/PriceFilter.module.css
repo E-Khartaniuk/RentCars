@@ -3,6 +3,16 @@
   display: inline-block;
 }
 
+.pricePerHour {
+  margin: 0;
+  color: #8a8a89;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
 .priceFilter label {
   display: block;
   margin-bottom: 5px;
@@ -12,6 +22,37 @@
   padding: 10px;
   font-size: 14px;
   width: 100%;
+  border-radius: 14px;
+  background: #f7f7fb;
+  border: none;
+  width: 125px;
+  height: 48px;
+}
+
+.priceFilter select option {
+  background-color: fff;
+  padding-left: 5px;
+  border: none;
+  color: black;
+}
+.priceFilter select option:hover {
+  background-color: black;
+  color: black;
+}
+
+.priceFilter select::-webkit-scrollbar {
+  width: 12px; /* Ширина полосы прокрутки */
+  padding-left: 4px;
+  border: none;
+  height: 188px;
+}
+
+.priceFilter select::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+
+  margin-right: 10px;
+
+  background: rgba(18, 20, 23, 0.05);
 }
 
 .priceFilter select:focus {

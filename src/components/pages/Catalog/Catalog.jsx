@@ -2,13 +2,16 @@ import axios from 'axios';
 import CarCard from 'components/CarCard/CarCard';
 import React, { useEffect, useState } from 'react';
 import css from './Catalog.module.css';
+import Filter from 'components/Filter/Filter';
+import PriceFilter from 'components/PriceFilter/PriceFilter';
+import PriceRangeFilter from 'components/PriceRangeFilter/PriceRangeFilter';
 
 export default function Catalog() {
   const URL = 'https://6488eedf0e2469c038fe859b.mockapi.io/CarRent';
   const [cars, setCars] = useState([]);
   const [favoriteCars, setFavoriteCars] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(8);
+
   const [hideLoadMore, setHideLoadMore] = useState(false);
 
   useEffect(() => {
@@ -17,14 +20,14 @@ export default function Catalog() {
         const response = await axios.get(URL, {
           params: {
             page: page,
-            limit: limit,
+            limit: 8,
           },
         });
         if (response.data.length === 0) {
           setHideLoadMore(true);
           return;
         }
-        // setCars(prevCars => [...prevCars, ...response.data]);
+
         setCars(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -43,7 +46,7 @@ export default function Catalog() {
       const response = await axios.get(URL, {
         params: {
           page: page,
-          limit: limit,
+          limit: 8,
         },
       });
       setCars(prevCars => [...prevCars, ...response.data]);
@@ -58,21 +61,24 @@ export default function Catalog() {
     fetchNewData();
   };
 
-  const handlePriceChange = () => {
+  const handlePriceChange = price => {
     const filteredCars = cars.filter(car => {
       const rentalPrice = parseFloat(car.rentalPrice.replace('$', ''));
-      return rentalPrice <= 40;
+      return rentalPrice <= price;
     });
-    console.log('filteredCars', filteredCars);
+
     setCars(filteredCars);
   };
 
   return (
     <>
-      <h2>Catalog</h2>
-      <button type="button" onClick={handlePriceChange}>
-        60
-      </button>
+      <div className={css.filterContainer}>
+        <Filter></Filter>
+
+        <PriceFilter onFilterChange={handlePriceChange}></PriceFilter>
+
+        <PriceRangeFilter onFilterChange={handlePriceChange}></PriceRangeFilter>
+      </div>
       <ul className={css.catalogList}>
         {cars.map(car => (
           <li key={car.id}>

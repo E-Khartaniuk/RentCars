@@ -10,12 +10,13 @@ export default function Filter() {
   return (
     <section>
       <div className={css.dropdown}>
+        <p className={css.carBrand}>Car brand</p>
         <button
           className={css.dropbtn}
           onMouseEnter={toggleDropdown}
           onMouseLeave={toggleDropdown}
         >
-          Выбрать элемент
+          Select car brand
         </button>
         <div
           className={
@@ -24,24 +25,38 @@ export default function Filter() {
               : css.dropdownContent
           }
         >
-          <a href="#" className={css.dropdownLink}>
-            Элемент 1
-          </a>
-          <a href="#" className={css.dropdownLink}>
-            Элемент 2
-          </a>
-          <a href="#" className={css.dropdownLink}>
-            Элемент 3
-          </a>
-          <a href="#" className={css.dropdownLink}>
-            Элемент 1
-          </a>
-          <a href="#" className={css.dropdownLink}>
-            Элемент 2
-          </a>
-          <a href="#" className={css.dropdownLink}>
-            Элемент 3
-          </a>
+          <div className={css.listContainer}>
+            <a href="#" className={css.dropdownLink}>
+              Buick
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              Volvo
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              Hummer
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              Subaru
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              Mitsubishi
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              Nissan
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              Lincoln
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              GMC
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              Hyundai
+            </a>
+            <a href="#" className={css.dropdownLink}>
+              Subaru
+            </a>
+          </div>
         </div>
       </div>
     </section>

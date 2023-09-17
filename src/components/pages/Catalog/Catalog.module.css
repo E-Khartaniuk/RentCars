@@ -5,8 +5,8 @@
   flex-wrap: wrap;
   gap: 50px 29px;
   align-items: stretch;
-
   padding: 0;
+  justify-content: center;
 }
 .loadMoreBtn {
   all: unset;
@@ -23,4 +23,15 @@
   margin: 100px auto 150px;
 
   cursor: pointer;
+}
+
+.filterContainer {
+  padding-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
 }

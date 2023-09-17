@@ -1,46 +1,67 @@
 import React, { useState } from 'react';
+import css from './PriceRangeFilter.module.css';
+
+const MAX_VALUE = 999999;
 
 const PriceRangeFilter = ({ onFilterChange }) => {
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
 
   const handleMinPriceChange = e => {
-    setMinPrice(e.target.value);
+    const value = e.target.value.replace(/\D/g, '');
+    setMinPrice(
+      formatNumberWithCommas(Math.min(parseInt(value, 10), MAX_VALUE))
+    );
   };
 
   const handleMaxPriceChange = e => {
-    setMaxPrice(e.target.value);
+    const value = e.target.value.replace(/\D/g, '');
+    setMaxPrice(
+      formatNumberWithCommas(Math.min(parseInt(value, 10), MAX_VALUE))
+    );
   };
 
-  const handleApplyFilter = () => {
-    if (minPrice !== '' && maxPrice !== '') {
-      console.log(minPrice, maxPrice);
-      onFilterChange({
-        minPrice: parseFloat(minPrice),
-        maxPrice: parseFloat(maxPrice),
-      });
-    } else {
-      onFilterChange(null);
-    }
-  };
+  // const handleApplyFilter = () => {
+  //   if (minPrice !== '' && maxPrice !== '') {
+  //     onFilterChange({
+  //       minPrice: parseFloat(minPrice.replace(/,/g, '')),
+  //       maxPrice: parseFloat(maxPrice.replace(/,/g, '')),
+  //     });
+  //   } else {
+  //     onFilterChange(null);
+  //   }
+  // };
+
+  function formatNumberWithCommas(number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 
   return (
-    <div>
-      <label htmlFor="minPrice">From:</label>
-      <input
-        type="number"
-        id="minPrice"
-        value={minPrice}
-        onChange={handleMinPriceChange}
-      />
-      <label htmlFor="maxPrice">To:</label>
-      <input
-        type="number"
-        id="maxPrice"
-        value={maxPrice}
-        onChange={handleMaxPriceChange}
-      />
-      <button onClick={handleApplyFilter}>Apply</button>
+    <div className={css.mainCont}>
+      <p className={css.carMileage}>Car mileage / km</p>
+      <div className={css.container}>
+        <span className={css.fromText}>From </span>
+        <input
+          className={css.fromInput}
+          type="text"
+          value={minPrice}
+          onChange={handleMinPriceChange}
+        />
+        <span className={css.toText}>To </span>
+        <input
+          className={css.toInput}
+          type="text"
+          value={maxPrice}
+          onChange={handleMaxPriceChange}
+        />
+        <button
+          type="button"
+          className={css.filterBtn}
+          // onClick={handleApplyFilter}
+        >
+          Search
+        </button>
+      </div>
     </div>
   );
 };

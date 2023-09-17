@@ -10,8 +10,26 @@
 }
 
 .navigationLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: inherit;
   text-decoration: none;
-  background-color: rgb(182, 202, 255);
+  cursor: pointer;
+
   width: 80px;
   height: 20px;
+  border-radius: 14px;
+  width: 120px;
+  height: 48px;
+  background: #f7f7fb;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.42;
+}
+
+.navigationLinks:hover {
+  background: #e6e6e6;
 }

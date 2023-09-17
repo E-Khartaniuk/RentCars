@@ -27,8 +27,6 @@ export default function CarModal({ car, openModal }) {
     }
   };
 
-  console.log('car.accessories', car.accessories);
-
   return (
     <div className={css.backdrop} onClick={handleBackdropClick}>
       <div className={css.carCardModal}>
