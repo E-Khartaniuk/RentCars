@@ -26,36 +26,36 @@ export default function Filter() {
           }
         >
           <div className={css.listContainer}>
-            <a href="#" className={css.dropdownLink}>
+            <button href="#" className={css.dropdownLink}>
               Buick
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               Volvo
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               Hummer
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               Subaru
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               Mitsubishi
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               Nissan
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               Lincoln
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               GMC
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               Hyundai
-            </a>
-            <a href="#" className={css.dropdownLink}>
+            </button>
+            <button href="#" className={css.dropdownLink}>
               Subaru
-            </a>
+            </button>
           </div>
         </div>
       </div>
