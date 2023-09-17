@@ -28,7 +28,7 @@ export default function Catalog() {
           return;
         }
 
-        setCars(prevCars => [...prevCars, ...response.data]);
+        setCars(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -39,7 +39,7 @@ export default function Catalog() {
     const storedFavorites =
       JSON.parse(localStorage.getItem('favoriteCars')) || [];
     setFavoriteCars(storedFavorites);
-  }, [page]);
+  }, [URL, page]);
 
   async function fetchNewData() {
     try {
@@ -71,7 +71,7 @@ export default function Catalog() {
   };
 
   return (
-    <>
+    <div className={css.listContainer}>
       <div className={css.filterContainer}>
         <Filter></Filter>
 
@@ -79,17 +79,19 @@ export default function Catalog() {
 
         <PriceRangeFilter onFilterChange={handlePriceChange}></PriceRangeFilter>
       </div>
-      <ul className={css.catalogList}>
-        {cars.map(car => (
-          <li key={car.id}>
-            <CarCard
-              car={car}
-              favoriteCars={favoriteCars}
-              setFavoriteCars={setFavoriteCars}
-            />
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul className={css.catalogList}>
+          {cars.map(car => (
+            <li key={car.id}>
+              <CarCard
+                car={car}
+                favoriteCars={favoriteCars}
+                setFavoriteCars={setFavoriteCars}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
       {!hideLoadMore ? (
         <button
           type="button"
@@ -101,6 +103,6 @@ export default function Catalog() {
       ) : (
         ''
       )}
-    </>
+    </div>
   );
 }
