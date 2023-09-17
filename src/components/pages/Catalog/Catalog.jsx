@@ -71,7 +71,7 @@ export default function Catalog() {
   };
 
   return (
-    <div className={css.listContainer}>
+    <>
       <div className={css.filterContainer}>
         <Filter></Filter>
 
@@ -79,19 +79,19 @@ export default function Catalog() {
 
         <PriceRangeFilter onFilterChange={handlePriceChange}></PriceRangeFilter>
       </div>
-      <div>
-        <ul className={css.catalogList}>
-          {cars.map(car => (
-            <li key={car.id}>
-              <CarCard
-                car={car}
-                favoriteCars={favoriteCars}
-                setFavoriteCars={setFavoriteCars}
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
+
+      <ul className={css.catalogList}>
+        {cars.map(car => (
+          <li key={car.id}>
+            <CarCard
+              car={car}
+              favoriteCars={favoriteCars}
+              setFavoriteCars={setFavoriteCars}
+            />
+          </li>
+        ))}
+      </ul>
+
       {!hideLoadMore ? (
         <button
           type="button"
@@ -103,6 +103,6 @@ export default function Catalog() {
       ) : (
         ''
       )}
-    </div>
+    </>
   );
 }
