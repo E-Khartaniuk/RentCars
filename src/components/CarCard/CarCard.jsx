@@ -3,11 +3,17 @@ import css from './CarCard.module.css';
 import CarModal from 'components/CarModal/CarModal';
 import sprite from '../img/sprite.svg';
 
-export default function ({ car, favoriteCars, setFavoriteCars, currentPrice }) {
+export default function CarCard({
+  car,
+  favoriteCars,
+  setFavoriteCars,
+  currentPrice,
+}) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   if (currentPrice !== null && car.price > currentPrice) {
     return null;
   }
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   // const [favorite, setFavorite] = useState(false);
   const isFavorite = favoriteCars.some(favCar => favCar.id === car.id);
 
