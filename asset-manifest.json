@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/RentCars/static/css/main.9c2fd955.css",
-    "main.js": "/RentCars/static/js/main.44559948.js",
+    "main.css": "/RentCars/static/css/main.7f5021ba.css",
+    "main.js": "/RentCars/static/js/main.8490bfd1.js",
     "static/media/sprite.svg": "/RentCars/static/media/sprite.3f7f90fdb107dd684047d03eff828b65.svg",
     "index.html": "/RentCars/index.html",
-    "main.9c2fd955.css.map": "/RentCars/static/css/main.9c2fd955.css.map",
-    "main.44559948.js.map": "/RentCars/static/js/main.44559948.js.map"
+    "main.7f5021ba.css.map": "/RentCars/static/css/main.7f5021ba.css.map",
+    "main.8490bfd1.js.map": "/RentCars/static/js/main.8490bfd1.js.map"
   },
   "entrypoints": [
-    "static/css/main.9c2fd955.css",
-    "static/js/main.44559948.js"
+    "static/css/main.7f5021ba.css",
+    "static/js/main.8490bfd1.js"
   ]
 }
