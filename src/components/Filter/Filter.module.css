@@ -33,7 +33,6 @@
   line-height: 1.11;
 }
 
-/* Стили для содержимого выпадающего списка */
 .dropdownContent {
   display: none;
   position: absolute;
@@ -49,7 +48,7 @@
 }
 
 .dropdownContent::-webkit-scrollbar {
-  width: 12px; /* Ширина полосы прокрутки */
+  width: 12px;
   padding-left: 4px;
 }
 
@@ -65,7 +64,6 @@
   background: rgba(0, 0, 0, 0.295);
 }
 
-/* Стили для ссылок в списке */
 .dropdownContent a {
   color: black;
   padding: 12px 16px;
@@ -80,13 +78,11 @@
   line-height: 1.25;
 }
 
-/* Стили для ссылок при наведении курсора */
 .dropdownContent a:hover {
   background-color: none;
   color: black;
 }
 
-/* Отображение выпадающего списка при наведении на кнопку */
 .dropdown:hover .dropdownContent {
   display: block;
 }

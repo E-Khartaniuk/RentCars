@@ -98,15 +98,9 @@ export default function CarModal({ car, openModal }) {
           </p>
         </div>
 
-        <button
-          className={css.cardBtn}
-          onClick={() => {
-            window.open('tel:+380730000000');
-            // window.location.href = `tel:${'+380730000000'}`;
-          }}
-        >
+        <a href="tel:+380730000000" className={css.cardBtn}>
           Rental car
-        </button>
+        </a>
       </div>
     </div>
   );

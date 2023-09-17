@@ -14,7 +14,6 @@ export default function CarCard({
     return null;
   }
 
-  // const [favorite, setFavorite] = useState(false);
   const isFavorite = favoriteCars.some(favCar => favCar.id === car.id);
 
   const adressArray = car.address.split(', ');

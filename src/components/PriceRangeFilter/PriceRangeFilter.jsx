@@ -21,17 +21,6 @@ const PriceRangeFilter = ({ onFilterChange }) => {
     );
   };
 
-  // const handleApplyFilter = () => {
-  //   if (minPrice !== '' && maxPrice !== '') {
-  //     onFilterChange({
-  //       minPrice: parseFloat(minPrice.replace(/,/g, '')),
-  //       maxPrice: parseFloat(maxPrice.replace(/,/g, '')),
-  //     });
-  //   } else {
-  //     onFilterChange(null);
-  //   }
-  // };
-
   function formatNumberWithCommas(number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
@@ -54,11 +43,7 @@ const PriceRangeFilter = ({ onFilterChange }) => {
           value={maxPrice}
           onChange={handleMaxPriceChange}
         />
-        <button
-          type="button"
-          className={css.filterBtn}
-          // onClick={handleApplyFilter}
-        >
+        <button type="button" className={css.filterBtn}>
           Search
         </button>
       </div>

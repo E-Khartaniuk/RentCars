@@ -26,36 +26,36 @@ export default function Filter() {
           }
         >
           <div className={css.listContainer}>
-            <button href="#" className={css.dropdownLink}>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Buick
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Volvo
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Hummer
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Subaru
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Mitsubishi
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Nissan
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Lincoln
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               GMC
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Hyundai
-            </button>
-            <button href="#" className={css.dropdownLink}>
+            </a>
+            <a href="/RentCars/catalog" className={css.dropdownLink}>
               Subaru
-            </button>
+            </a>
           </div>
         </div>
       </div>

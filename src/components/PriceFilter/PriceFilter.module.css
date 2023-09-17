@@ -41,7 +41,7 @@
 }
 
 .priceFilter select::-webkit-scrollbar {
-  width: 12px; /* Ширина полосы прокрутки */
+  width: 12px;
   padding-left: 4px;
   border: none;
   height: 188px;
