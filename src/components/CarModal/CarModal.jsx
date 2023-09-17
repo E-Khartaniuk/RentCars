@@ -59,7 +59,6 @@ export default function CarModal({ car, openModal }) {
             Fuel Consumption: {car.fuelConsumption}
           </li>
           <li className={css.propertyItem}>Engine Size: {car.engineSize}</li>
-          {/* <li className={css.propertyItem}>{car.functionalities[0]}</li> */}
         </ul>
 
         <p className={css.description}>{car.description}</p>
@@ -102,7 +101,8 @@ export default function CarModal({ car, openModal }) {
         <button
           className={css.cardBtn}
           onClick={() => {
-            window.location.href = `tel:${'+380730000000'}`;
+            window.open('tel:+380730000000');
+            // window.location.href = `tel:${'+380730000000'}`;
           }}
         >
           Rental car

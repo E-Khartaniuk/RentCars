@@ -11,8 +11,6 @@ export default function Favorites() {
   const [cars, setCars] = useState([]);
   const [favoriteCars, setFavoriteCars] = useState([]);
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(8);
-  const [hideLoadMore, setHideLoadMore] = useState(false);
 
   useEffect(() => {
     const favoriteCarsFromLs =
@@ -34,15 +32,13 @@ export default function Favorites() {
     }
 
     fetchData();
-  }, [URL, page, limit]);
+  }, [URL, page]);
 
   const handlePriceChange = price => {
-    console.log('price', price);
     const filteredCars = cars.filter(car => {
       const rentalPrice = parseFloat(car.rentalPrice.replace('$', ''));
       return rentalPrice <= price;
     });
-    console.log('filteredCars', filteredCars);
     setCars(filteredCars);
   };
 
@@ -68,7 +64,7 @@ export default function Favorites() {
           </li>
         ))}
       </ul>
-      {!hideLoadMore && favoriteCars.length > 0 ? (
+      {favoriteCars.length > 0 ? (
         <button
           type="button"
           onClick={handleLoadMore}

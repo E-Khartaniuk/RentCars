@@ -28,7 +28,7 @@ export default function Catalog() {
           return;
         }
 
-        setCars(response.data);
+        setCars(prevCars => [...prevCars, ...response.data]);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -39,7 +39,7 @@ export default function Catalog() {
     const storedFavorites =
       JSON.parse(localStorage.getItem('favoriteCars')) || [];
     setFavoriteCars(storedFavorites);
-  }, []);
+  }, [page]);
 
   async function fetchNewData() {
     try {
