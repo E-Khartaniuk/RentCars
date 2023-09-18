@@ -7,6 +7,8 @@ quickly find the car you need for your dream trip or business trips! The
 application allows you to filter cars according to your own criteria and save
 the cars you like.
 
+![Home](https://github.com/E-Khartaniuk/RentCars/blob/main/src/components/img/%D1%811.jpg)
+
 Этот проект был создан при помощи
 [Create React App](https://github.com/facebook/create-react-app). Для знакомства
 и настройки дополнительных возможностей
