@@ -19,9 +19,8 @@ Favorite page:
 ![Favorite](https://github.com/E-Khartaniuk/RentCars/blob/main/src/components/img/%D1%813.jpg)
 
 
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
+This project was created with
+[Create React App](https://github.com/facebook/create-react-app). To get acquainted and configure additional features
 [обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
 
 
