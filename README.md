@@ -8,7 +8,7 @@ application allows you to filter cars according to your own criteria and save
 the cars you like.
 
 ![Home](https://github.com/E-Khartaniuk/RentCars/blob/main/src/components/img/%D1%811.jpg)
-![Catalog]((https://github.com/E-Khartaniuk/RentCars/blob/main/src/components/img/%D1%812.jpg)
+![Catalog](https://github.com/E-Khartaniuk/RentCars/blob/main/src/components/img/%D1%812.jpg)
 ![Favorite](https://github.com/E-Khartaniuk/RentCars/blob/main/src/components/img/%D1%813.jpg)
 
 Этот проект был создан при помощи
