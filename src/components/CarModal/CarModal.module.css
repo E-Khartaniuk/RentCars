@@ -124,6 +124,8 @@
   justify-content: center;
   align-items: center;
   text-decoration: none;
+
+  cursor: pointer;
 }
 
 .cardBtn:focus {

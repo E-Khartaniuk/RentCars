@@ -1,24 +1,49 @@
 import React, { useState } from 'react';
 import css from './PriceFilter.module.css';
 
-const PriceFilter = ({ handlePriceChange, onFilterChange }) => {
-  const [selectedPrice, setSelectedPrice] = useState('To $:');
+const PriceFilter = ({ handlePriceChange, onFilterChange, carsPriceList }) => {
+  // const [selectedPrice, setSelectedPrice] = useState('To $:');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleApplyFilter = e => {
-    const selectedValue = e.target.value;
-    setSelectedPrice(selectedValue);
-
-    if (selectedValue !== '') {
-      onFilterChange(parseFloat(selectedValue));
-    } else {
-      onFilterChange(null);
-    }
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
   };
+
+  // const handleApplyFilter = e => {
+  //   const selectedValue = e.target.value;
+  //   setSelectedPrice(selectedValue);
+
+  //   if (selectedValue !== '') {
+  //     onFilterChange(parseFloat(selectedValue));
+  //   } else {
+  //     onFilterChange(null);
+  //   }
+  // };
 
   return (
     <div className={css.priceFilter}>
       <p className={css.pricePerHour}>Price/ 1 hour</p>
-      <select
+      <button
+        className={css.dropbtn}
+        onMouseEnter={toggleDropdown}
+        onMouseLeave={toggleDropdown}
+      >
+        To $
+      </button>
+      <div
+        className={
+          isDropdownOpen
+            ? `${css.dropdownContent} ${css.open}`
+            : css.dropdownContent
+        }
+      >
+        <ul className={css.listContainer}>
+          {carsPriceList.map(price => {
+            return <li className={css.dropdownLink}>{price}</li>;
+          })}
+        </ul>
+      </div>
+      {/* <select
         value={selectedPrice}
         onChange={handleApplyFilter}
         style={{ height: '48px' }}
@@ -51,7 +76,7 @@ const PriceFilter = ({ handlePriceChange, onFilterChange }) => {
         <option value={260}>260</option>
         <option value={270}>270</option>
         <option value={280}>280</option>
-      </select>
+      </select> */}
     </div>
   );
 };

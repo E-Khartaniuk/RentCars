@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import css from './Filter.module.css';
 
-export default function Filter() {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+export default function Filter({ carsMarkList }) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
+
   return (
     <section>
       <div className={css.dropdown}>
@@ -20,43 +21,18 @@ export default function Filter() {
         </button>
         <div
           className={
-            isDropdownOpen
-              ? `${css.dropdownContent} ${css.open}`
-              : css.dropdownContent
+            isDropdownOpen ? `${css.dropdownContent} ` : css.dropdownContent
           }
         >
-          <div className={css.listContainer}>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Buick
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Volvo
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Hummer
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Subaru
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Mitsubishi
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Nissan
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Lincoln
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              GMC
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Hyundai
-            </a>
-            <a href="/RentCars/catalog" className={css.dropdownLink}>
-              Subaru
-            </a>
-          </div>
+          <ul className={css.listContainer}>
+            {carsMarkList.map(car => (
+              <li>
+                <a href="/RentCars/catalog" className={css.dropdownLink}>
+                  {car.make}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

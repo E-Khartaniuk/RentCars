@@ -11,8 +11,49 @@ export default function Catalog() {
   const [cars, setCars] = useState([]);
   const [favoriteCars, setFavoriteCars] = useState([]);
   const [page, setPage] = useState(1);
+  const [carsMarkList, SetCarsMarkList] = useState([]);
+  const [carsPriceList, SetCarsPriceList] = useState([]);
 
   const [hideLoadMore, setHideLoadMore] = useState(false);
+
+  const fetchCarsMarkList = async () => {
+    let minPrice = Infinity;
+    let maxPrice = -Infinity;
+    const priceStep = 10;
+    const newPrices = [];
+
+    try {
+      const cars = await axios.get(URL);
+
+      const carsMarkForFilter = cars.data.map(make => {
+        return make;
+      });
+      SetCarsMarkList(carsMarkForFilter);
+
+      for (const car of cars.data) {
+        const price = parseFloat(car.rentalPrice.replace('$', ''));
+        if (price < minPrice) {
+          minPrice = price;
+        }
+        if (price > maxPrice) {
+          maxPrice = price;
+        }
+      }
+
+      // Формируем список цен с шагом в 10 долларов
+      for (let price = minPrice; price <= maxPrice; price += priceStep) {
+        newPrices.push(Math.ceil(price / 10) * 10);
+      }
+
+      // Обновляем состояние carsPriceList только один раз
+      SetCarsPriceList(newPrices);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  useEffect(() => {
+    fetchCarsMarkList();
+  }, []);
 
   useEffect(() => {
     async function fetchData() {
@@ -27,7 +68,6 @@ export default function Catalog() {
           setHideLoadMore(true);
           return;
         }
-
         setCars(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -57,7 +97,6 @@ export default function Catalog() {
 
   const handleLoadMore = () => {
     setPage(prevPage => prevPage + 1);
-
     fetchNewData();
   };
 
@@ -73,9 +112,12 @@ export default function Catalog() {
   return (
     <>
       <div className={css.filterContainer}>
-        <Filter></Filter>
+        <Filter carsMarkList={carsMarkList}></Filter>
 
-        <PriceFilter onFilterChange={handlePriceChange}></PriceFilter>
+        <PriceFilter
+          onFilterChange={handlePriceChange}
+          carsPriceList={carsPriceList}
+        ></PriceFilter>
 
         <PriceRangeFilter onFilterChange={handlePriceChange}></PriceRangeFilter>
       </div>

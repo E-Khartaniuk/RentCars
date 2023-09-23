@@ -121,6 +121,7 @@
   border-radius: 12px;
   background: #3470ff;
   color: White;
+  cursor: pointer;
 }
 
 .cardBtn:focus {
