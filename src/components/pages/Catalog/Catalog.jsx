@@ -18,7 +18,7 @@ export default function Catalog() {
   const [carsMarkList, setCarsMarkList] = useState([]);
   const [carsPriceList, setCarsPriceList] = useState([]);
   const [hideLoadMore, setHideLoadMore] = useState(false);
-  const [selectedCarMark, setSelectedCarMark] = useState(null);
+  // const [selectedCarMark, setSelectedCarMark] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,6 +82,8 @@ export default function Catalog() {
   };
 
   const handlePriceChange = price => {
+    console.log('price', price);
+    if (price === null) return;
     const filteredCars = cars.filter(car => {
       const rentalPrice = parseFloat(car.rentalPrice.replace('$', ''));
       return rentalPrice <= price;
@@ -89,7 +91,6 @@ export default function Catalog() {
 
     setCars(filteredCars);
   };
-  console.log('carsMarkList', carsMarkList);
 
   return (
     <>
