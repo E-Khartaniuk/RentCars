@@ -5,12 +5,34 @@ import PriceRangeFilter from 'components/PriceRangeFilter/PriceRangeFilter';
 import React, { useEffect, useState } from 'react';
 import css from '../Catalog/Catalog.module.css';
 import axios from 'axios';
+import {
+  fetchCarsMarkList,
+  fetchCarsPriceList,
+} from 'components/Utils/fetchCarsData';
 
 export default function Favorites() {
   const URL = 'https://6488eedf0e2469c038fe859b.mockapi.io/CarRent';
   const [cars, setCars] = useState([]);
   const [favoriteCars, setFavoriteCars] = useState([]);
   const [page, setPage] = useState(1);
+  const [carsMarkList, setCarsMarkList] = useState([]);
+  const [carsPriceList, setCarsPriceList] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const markList = await fetchCarsMarkList();
+        setCarsMarkList(markList);
+
+        const priceList = await fetchCarsPriceList();
+        setCarsPriceList(priceList);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   useEffect(() => {
     const favoriteCarsFromLs =
@@ -49,8 +71,11 @@ export default function Favorites() {
   return (
     <>
       <div className={css.filterContainer}>
-        <Filter />
-        <PriceFilter onFilterChange={handlePriceChange} />
+        <Filter carsMarkList={carsMarkList} />
+        <PriceFilter
+          onFilterChange={handlePriceChange}
+          carsPriceList={carsPriceList}
+        />
         <PriceRangeFilter onFilterChange={handlePriceChange} />
       </div>
       <ul className={css.catalogList}>

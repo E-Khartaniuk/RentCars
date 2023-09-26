@@ -5,54 +5,35 @@ import css from './Catalog.module.css';
 import Filter from 'components/Filter/Filter';
 import PriceFilter from 'components/PriceFilter/PriceFilter';
 import PriceRangeFilter from 'components/PriceRangeFilter/PriceRangeFilter';
+import {
+  fetchCarsMarkList,
+  fetchCarsPriceList,
+} from 'components/Utils/fetchCarsData';
 
 export default function Catalog() {
   const URL = 'https://6488eedf0e2469c038fe859b.mockapi.io/CarRent';
   const [cars, setCars] = useState([]);
   const [favoriteCars, setFavoriteCars] = useState([]);
   const [page, setPage] = useState(1);
-  const [carsMarkList, SetCarsMarkList] = useState([]);
-  const [carsPriceList, SetCarsPriceList] = useState([]);
-
+  const [carsMarkList, setCarsMarkList] = useState([]);
+  const [carsPriceList, setCarsPriceList] = useState([]);
   const [hideLoadMore, setHideLoadMore] = useState(false);
+  const [selectedCarMark, setSelectedCarMark] = useState(null);
 
-  const fetchCarsMarkList = async () => {
-    let minPrice = Infinity;
-    let maxPrice = -Infinity;
-    const priceStep = 10;
-    const newPrices = [];
-
-    try {
-      const cars = await axios.get(URL);
-
-      const carsMarkForFilter = cars.data.map(make => {
-        return make;
-      });
-      SetCarsMarkList(carsMarkForFilter);
-
-      for (const car of cars.data) {
-        const price = parseFloat(car.rentalPrice.replace('$', ''));
-        if (price < minPrice) {
-          minPrice = price;
-        }
-        if (price > maxPrice) {
-          maxPrice = price;
-        }
-      }
-
-      // Формируем список цен с шагом в 10 долларов
-      for (let price = minPrice; price <= maxPrice; price += priceStep) {
-        newPrices.push(Math.ceil(price / 10) * 10);
-      }
-
-      // Обновляем состояние carsPriceList только один раз
-      SetCarsPriceList(newPrices);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
   useEffect(() => {
-    fetchCarsMarkList();
+    const fetchData = async () => {
+      try {
+        const markList = await fetchCarsMarkList();
+        setCarsMarkList(markList);
+
+        const priceList = await fetchCarsPriceList();
+        setCarsPriceList(priceList);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -108,6 +89,7 @@ export default function Catalog() {
 
     setCars(filteredCars);
   };
+  console.log('carsMarkList', carsMarkList);
 
   return (
     <>

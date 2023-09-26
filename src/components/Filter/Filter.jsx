@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import css from './Filter.module.css';
 
-export default function Filter({ carsMarkList }) {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+export default function Filter({ carsMarkList, onCarMarkSelect }) {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedMark, setSelectedMark] = useState(null);
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleSelectMark = e => {
+    e.preventDefault();
+    setSelectedMark(e.target.innerText);
+    onCarMarkSelect(selectedMark);
   };
 
   return (
@@ -17,14 +24,14 @@ export default function Filter({ carsMarkList }) {
           onMouseEnter={toggleDropdown}
           onMouseLeave={toggleDropdown}
         >
-          Select car brand
+          {selectedMark ? selectedMark : 'Select car brand'}
         </button>
         <div
           className={
             isDropdownOpen ? `${css.dropdownContent} ` : css.dropdownContent
           }
         >
-          <ul className={css.listContainer}>
+          <ul className={css.listContainer} onClick={handleSelectMark}>
             {carsMarkList.map(car => (
               <li>
                 <a href="/RentCars/catalog" className={css.dropdownLink}>
