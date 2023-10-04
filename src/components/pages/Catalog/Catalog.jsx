@@ -9,6 +9,7 @@ import {
   fetchCarsMarkList,
   fetchCarsPriceList,
 } from 'components/Utils/fetchCarsData';
+import { nanoid } from 'nanoid';
 
 export default function Catalog() {
   const URL = 'https://6488eedf0e2469c038fe859b.mockapi.io/CarRent';
@@ -70,6 +71,7 @@ export default function Catalog() {
           limit: 8,
         },
       });
+      // setCars(response.data);
       setCars(prevCars => [...prevCars, ...response.data]);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -107,7 +109,10 @@ export default function Catalog() {
 
       <ul className={css.catalogList}>
         {cars.map(car => (
-          <li key={car.id}>
+          <li
+            key={car.id}
+            // key={nanoid()}
+          >
             <CarCard
               car={car}
               favoriteCars={favoriteCars}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import css from './PriceFilter.module.css';
+import { nanoid } from 'nanoid';
 
 const PriceFilter = ({ handlePriceChange, onFilterChange, carsPriceList }) => {
   // const [selectedPrice, setSelectedPrice] = useState('To $:');
@@ -10,22 +11,12 @@ const PriceFilter = ({ handlePriceChange, onFilterChange, carsPriceList }) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  // const handleApplyFilter = e => {
-  //   const selectedValue = e.target.value;
-  //   setSelectedPrice(selectedValue);
-
-  //   if (selectedValue !== '') {
-  //     onFilterChange(parseFloat(selectedValue));
-  //   } else {
-  //     onFilterChange(null);
-  //   }
-  // };
-
   const handleSelectMark = e => {
     e.preventDefault();
 
     if (e.target.nodeName === 'UL') return;
 
+    setSelectedPrice(e.target.innerText);
     onFilterChange(e.target.innerText);
   };
 
@@ -48,7 +39,11 @@ const PriceFilter = ({ handlePriceChange, onFilterChange, carsPriceList }) => {
       >
         <ul className={css.listContainer} onClick={handleSelectMark}>
           {carsPriceList.map(price => {
-            return <li className={css.dropdownLink}>{price}</li>;
+            return (
+              <li key={nanoid()} className={css.dropdownLink}>
+                {price}
+              </li>
+            );
           })}
         </ul>
       </div>

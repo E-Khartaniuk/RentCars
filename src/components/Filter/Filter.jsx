@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import css from './Filter.module.css';
+import { nanoid } from 'nanoid';
 
 export default function Filter({ carsMarkList, onCarMarkSelect }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -33,7 +34,7 @@ export default function Filter({ carsMarkList, onCarMarkSelect }) {
         >
           <ul className={css.listContainer} onClick={handleSelectMark}>
             {carsMarkList.map(car => (
-              <li>
+              <li key={nanoid()}>
                 <a href="/RentCars/catalog" className={css.dropdownLink}>
                   {car.make}
                 </a>
