@@ -11,9 +11,8 @@ export default function Filter({ carsMarkList, onCarMarkSelect }) {
   };
 
   const handleSelectMark = e => {
-    e.preventDefault();
     setSelectedMark(e.target.innerText);
-    onCarMarkSelect(selectedMark);
+    onCarMarkSelect(e.target.innerText);
   };
 
   return (
@@ -32,12 +31,14 @@ export default function Filter({ carsMarkList, onCarMarkSelect }) {
             isDropdownOpen ? `${css.dropdownContent} ` : css.dropdownContent
           }
         >
-          <ul className={css.listContainer} onClick={handleSelectMark}>
+          <ul className={css.listContainer}>
             {carsMarkList.map(car => (
-              <li key={nanoid()}>
-                <a href="/RentCars/catalog" className={css.dropdownLink}>
-                  {car.make}
-                </a>
+              <li
+                key={nanoid()}
+                className={css.dropdownLink}
+                onClick={handleSelectMark}
+              >
+                {car}
               </li>
             ))}
           </ul>

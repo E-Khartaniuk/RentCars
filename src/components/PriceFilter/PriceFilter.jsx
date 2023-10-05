@@ -15,7 +15,10 @@ const PriceFilter = ({ handlePriceChange, onFilterChange, carsPriceList }) => {
     e.preventDefault();
 
     if (e.target.nodeName === 'UL') return;
-
+    if (e.target.innerText === 'Show all') {
+      onFilterChange(e.target.innerText);
+    }
+    console.log('selectedPrice', selectedPrice);
     setSelectedPrice(e.target.innerText);
     onFilterChange(e.target.innerText);
   };
@@ -38,6 +41,9 @@ const PriceFilter = ({ handlePriceChange, onFilterChange, carsPriceList }) => {
         }
       >
         <ul className={css.listContainer} onClick={handleSelectMark}>
+          <li key={nanoid()} className={css.dropdownLink}>
+            Show all
+          </li>
           {carsPriceList.map(price => {
             return (
               <li key={nanoid()} className={css.dropdownLink}>

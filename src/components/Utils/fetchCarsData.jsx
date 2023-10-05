@@ -3,12 +3,20 @@ import axios from 'axios';
 export const fetchCarsMarkList = async () => {
   const URL = 'https://6488eedf0e2469c038fe859b.mockapi.io/CarRent';
   try {
-    const cars = await axios.get(URL);
+    const response = await axios.get(URL);
+    const cars = response.data;
 
-    const carsMarkForFilter = cars.data.map(make => {
-      return make;
+    const uniqueCarMarks = new Set();
+
+    cars.forEach(car => {
+      if (car.make) {
+        uniqueCarMarks.add(car.make);
+      }
     });
-    return carsMarkForFilter;
+
+    const uniqueCarMarksArray = Array.from(uniqueCarMarks);
+
+    return uniqueCarMarksArray;
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -43,3 +51,18 @@ export const fetchCarsPriceList = async () => {
     console.error('Error fetching data:', error);
   }
 };
+
+export async function fetchAllData(page) {
+  const URL = 'https://6488eedf0e2469c038fe859b.mockapi.io/CarRent';
+  try {
+    const response = await axios.get(URL, {
+      params: {
+        page: page,
+        limit: 8,
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
