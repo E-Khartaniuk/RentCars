@@ -111,7 +111,7 @@ export default function Catalog() {
   };
 
   return (
-    <>
+    <div className={css.container}>
       <div className={css.filterContainer}>
         <Filter
           carsMarkList={carsMarkList}
@@ -149,6 +149,6 @@ export default function Catalog() {
       ) : (
         ''
       )}
-    </>
+    </div>
   );
 }

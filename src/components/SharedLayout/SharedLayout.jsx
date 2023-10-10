@@ -6,15 +6,17 @@ export const SharedLayout = () => {
     <div className={css.container}>
       <header>
         <nav className={css.navLinksList}>
-          <NavLink to="/" className={css.navigationLinks}>
-            Home
-          </NavLink>
-          <NavLink to="/catalog" className={css.navigationLinks}>
-            Catalog
-          </NavLink>
-          <NavLink to="/favorites" className={css.navigationLinks}>
-            Favorites
-          </NavLink>
+          <div className={css.linksContainer}>
+            <NavLink to="/" className={css.navigationLinks}>
+              Home
+            </NavLink>
+            <NavLink to="/catalog" className={css.navigationLinks}>
+              Catalog
+            </NavLink>
+            <NavLink to="/favorites" className={css.navigationLinks}>
+              Favorites
+            </NavLink>
+          </div>
         </nav>
       </header>
       <Outlet />

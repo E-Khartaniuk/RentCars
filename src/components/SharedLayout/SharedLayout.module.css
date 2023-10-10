@@ -6,6 +6,12 @@
 }
 
 .navLinksList {
+  background-color: #242424;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.linksContainer {
+  margin-left: 250px;
   display: flex;
   gap: 12px;
 }
