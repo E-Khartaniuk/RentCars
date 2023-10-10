@@ -1,14 +1,15 @@
 {
   "files": {
-    "main.css": "/RentCars/static/css/main.832a8e6e.css",
-    "main.js": "/RentCars/static/js/main.ec368a8c.js",
+    "main.css": "/RentCars/static/css/main.9d803b39.css",
+    "main.js": "/RentCars/static/js/main.ab105faf.js",
+    "static/media/the-car-rides-on-the-road-among-the-forest-top-view.jpg": "/RentCars/static/media/the-car-rides-on-the-road-among-the-forest-top-view.5f6f738ba0ec789b43f7.jpg",
     "static/media/sprite.svg": "/RentCars/static/media/sprite.3f7f90fdb107dd684047d03eff828b65.svg",
     "index.html": "/RentCars/index.html",
-    "main.832a8e6e.css.map": "/RentCars/static/css/main.832a8e6e.css.map",
-    "main.ec368a8c.js.map": "/RentCars/static/js/main.ec368a8c.js.map"
+    "main.9d803b39.css.map": "/RentCars/static/css/main.9d803b39.css.map",
+    "main.ab105faf.js.map": "/RentCars/static/js/main.ab105faf.js.map"
   },
   "entrypoints": [
-    "static/css/main.832a8e6e.css",
-    "static/js/main.ec368a8c.js"
+    "static/css/main.9d803b39.css",
+    "static/js/main.ab105faf.js"
   ]
 }
