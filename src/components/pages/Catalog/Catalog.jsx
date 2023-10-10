@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import css from './Catalog.module.css';
 import Filter from 'components/Filter/Filter';
 import PriceFilter from 'components/PriceFilter/PriceFilter';
-import PriceRangeFilter from 'components/PriceRangeFilter/PriceRangeFilter';
 import {
   fetchAllData,
   fetchCarsMarkList,
