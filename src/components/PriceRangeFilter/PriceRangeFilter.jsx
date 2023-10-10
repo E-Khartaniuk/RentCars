@@ -43,9 +43,9 @@ const PriceRangeFilter = ({ onFilterChange }) => {
           value={maxPrice}
           onChange={handleMaxPriceChange}
         />
-        <button type="button" className={css.filterBtn}>
+        {/* <button type="button" className={css.filterBtn}>
           Search
-        </button>
+        </button> */}
       </div>
     </div>
   );

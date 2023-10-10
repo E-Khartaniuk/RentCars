@@ -1,15 +1,42 @@
 .title {
-  font-size: 128px;
-  text-decoration: double;
+  font-size: 174px;
+  /* text-decoration: double; */
   width: 60%;
+  color: white;
 }
 
 .description {
   font-size: 44px;
   width: 40%;
+  color: white;
 }
 
 .container {
   display: flex;
   align-items: center;
+  gap: 2vw;
+}
+
+.homePageBG {
+  display: flex;
+  flex-direction: column;
+  height: 73vw;
+  background-image: url('../../img/the-car-rides-on-the-road-among-the-forest-top-view.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.catalogBtn {
+  margin-top: 200px;
+  display: inline;
+  text-decoration: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 20px 40px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 28px;
+  font-weight: 500;
 }

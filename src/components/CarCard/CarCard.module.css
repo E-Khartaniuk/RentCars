@@ -55,7 +55,6 @@
 
 .favoriteIconChecked:focus,
 :hover {
-  fill: #3470ff;
   stroke: #3470ff;
 }
 

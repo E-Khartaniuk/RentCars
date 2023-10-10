@@ -124,7 +124,7 @@ export default function Catalog() {
           carsPriceList={carsPriceList}
         ></PriceFilter>
 
-        <PriceRangeFilter onFilterChange={handlePriceChange}></PriceRangeFilter>
+        {/* <PriceRangeFilter onFilterChange={handlePriceChange}></PriceRangeFilter> */}
       </div>
 
       <ul className={css.catalogList}>
