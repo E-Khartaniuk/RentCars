@@ -17,8 +17,12 @@ const PriceFilter = ({ handlePriceChange, onFilterChange, carsPriceList }) => {
     if (e.target.nodeName === 'UL') return;
     if (e.target.innerText === 'Show all') {
       onFilterChange(e.target.innerText);
+      setSelectedPrice(null);
+      return;
     }
-    console.log('selectedPrice', selectedPrice);
+
+    console.log('selectedPrice', e.target.innerText);
+
     setSelectedPrice(e.target.innerText);
     onFilterChange(e.target.innerText);
   };
